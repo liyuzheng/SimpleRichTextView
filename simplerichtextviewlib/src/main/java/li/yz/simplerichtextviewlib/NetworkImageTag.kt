@@ -21,13 +21,13 @@ class NetworkImageTag(
 ) : ImageTag(context, K_NETWORK_IMG) {
 
     override fun formatSpaned(spannableString: SpannableString, start: Int) {
-        super.formatSpaned(spannableString,start)
+        super.formatSpaned(spannableString, start)
 //        if (placeholder != 0) {
         val end = start + tagSize
 //            val span = VerCenterImageSpan(context, getBitmapFromDrawable(placeholder))
 //            spannableString.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 //        }
-        getBitmapFromNet(spannableString,start,end)
+        getBitmapFromNet(spannableString, start, end)
     }
 
     private fun getBitmapFromNet(spannableString: SpannableString, start: Int, end: Int) {
@@ -42,10 +42,11 @@ class NetworkImageTag(
                 }
 
                 override fun onLoadStarted(placeholder: Drawable?) {
-                    placeholder?.run {
+                    val bitmap = getBitmapFromDrawable(placeholderInt)
+                    bitmap?.run {
                         val span = VerCenterImageSpan(
                             context,
-                            getBitmapFromDrawable(placeholderInt)
+                            this
                         )
                         spannableString.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                     }

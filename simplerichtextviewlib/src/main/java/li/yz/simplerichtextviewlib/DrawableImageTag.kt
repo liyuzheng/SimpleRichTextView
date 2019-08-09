@@ -14,8 +14,11 @@ class DrawableImageTag(context: Context, private val drawableInt: Int) : ImageTa
     override fun formatSpaned(spannableString: SpannableString, start: Int) {
         super.formatSpaned(spannableString,start)
         val end = start + tagSize
-        val span = VerCenterImageSpan(context, getBitmapFromDrawable(drawableInt))
-        spannableString.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        val bitmap =  getBitmapFromDrawable(drawableInt)
+        bitmap?.run{
+            val span = VerCenterImageSpan(context, this)
+            spannableString.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
     }
 
 

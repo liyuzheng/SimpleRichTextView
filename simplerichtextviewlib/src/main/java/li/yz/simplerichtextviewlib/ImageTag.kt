@@ -16,26 +16,38 @@ abstract class ImageTag(protected val context: Context, tag: String) : BaseTag(t
     var paddingEnd: Int = 0
 
     protected fun scaleBitmap(bitmap: Bitmap): Bitmap {
-        if (width == -1 || height == -1) return bitmap
-        val newBitmap =
-            Bitmap.createBitmap(width + paddingStart + paddingEnd, height, Bitmap.Config.ARGB_8888)//创建和目标相同大小的空Bitmap
-        val canvas = Canvas(newBitmap)
-        val paint = Paint()
-        //针对绘制bitmap添加抗锯齿
-        val pfd = PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
-        paint.isFilterBitmap = true //对Bitmap进行滤波处理
-        paint.isAntiAlias = true//设置抗锯齿
-        canvas.drawFilter = pfd
-        canvas.drawBitmap(bitmap, null, Rect(paddingStart, 0, width + paddingStart, height), paint)
-        canvas.save()
+        try {
+            if (width == -1 || height == -1) return bitmap
+            val newBitmap =
+                Bitmap.createBitmap(
+                    width + paddingStart + paddingEnd,
+                    height,
+                    Bitmap.Config.ARGB_8888
+                )//创建和目标相同大小的空Bitmap
+            val canvas = Canvas(newBitmap)
+            val paint = Paint()
+            //针对绘制bitmap添加抗锯齿
+            val pfd = PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
+            paint.isFilterBitmap = true //对Bitmap进行滤波处理
+            paint.isAntiAlias = true//设置抗锯齿
+            canvas.drawFilter = pfd
+            canvas.drawBitmap(bitmap, null, Rect(paddingStart, 0, width + paddingStart, height), paint)
+            canvas.save()
 //            // 存储
-        canvas.restore()
-        return newBitmap
+            canvas.restore()
+            return newBitmap
+        }catch (ex:Exception){
+            return bitmap
+        }
     }
 
-    protected fun getBitmapFromDrawable(drawableInt: Int): Bitmap {
-        val res: Resources = context.resources
-        val bitmapDrawable = res.getDrawable(drawableInt) as BitmapDrawable
-        return scaleBitmap(bitmapDrawable.bitmap)
+    protected fun getBitmapFromDrawable(drawableInt: Int): Bitmap? {
+        return try {
+            val res: Resources = context.resources
+            val bitmapDrawable = res.getDrawable(drawableInt) as BitmapDrawable
+            scaleBitmap(bitmapDrawable.bitmap)
+        }catch (ex:Exception){
+            null
+        }
     }
 }

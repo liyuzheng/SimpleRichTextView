@@ -1,1 +1,1 @@
-include ':app', ':lib', ':simplerichtextviewlib'
+include ':app', ':simplerichtextviewlib'

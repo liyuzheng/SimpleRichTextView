@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:id="@+id/main">
     <li.yz.simplerichtextviewlib.RichTxtView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rich_txt"
             android:paddingStart="12dp"
