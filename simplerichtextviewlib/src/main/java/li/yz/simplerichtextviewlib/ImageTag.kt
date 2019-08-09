@@ -1,10 +1,9 @@
-package li.yz.simplerichtextview.lib
+package li.yz.simplerichtextviewlib
 
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
-import li.yz.simplerichtextview.lib.BaseTag
 
 /**
  * desc: todo Overview

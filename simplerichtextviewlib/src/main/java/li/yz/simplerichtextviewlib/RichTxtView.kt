@@ -1,17 +1,17 @@
-package li.yz.simplerichtextview.lib
+package li.yz.simplerichtextviewlib
 
 import android.content.Context
 import android.graphics.Color
-import android.support.v7.widget.AppCompatTextView
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.util.AttributeSet
+import android.widget.TextView
 
 /**
  * desc: todo Overview
  * createed by liyuzheng on 2019/8/9 13:06
  */
-class RichTxtView : AppCompatTextView {
+class RichTxtView : TextView {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 

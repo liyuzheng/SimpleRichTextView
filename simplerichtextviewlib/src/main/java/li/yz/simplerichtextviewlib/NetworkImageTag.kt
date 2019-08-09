@@ -1,4 +1,4 @@
-package li.yz.simplerichtextview.lib
+package li.yz.simplerichtextviewlib
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -43,7 +43,10 @@ class NetworkImageTag(
 
                 override fun onLoadStarted(placeholder: Drawable?) {
                     placeholder?.run {
-                        val span = VerCenterImageSpan(context, getBitmapFromDrawable(placeholderInt))
+                        val span = VerCenterImageSpan(
+                            context,
+                            getBitmapFromDrawable(placeholderInt)
+                        )
                         spannableString.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                     }
                 }

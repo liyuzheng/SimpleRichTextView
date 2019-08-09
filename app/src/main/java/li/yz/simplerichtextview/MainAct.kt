@@ -8,10 +8,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.m_act.*
-import li.yz.simplerichtextview.lib.ClickListener
-import li.yz.simplerichtextview.lib.DrawableImageTag
-import li.yz.simplerichtextview.lib.NetworkImageTag
-import li.yz.simplerichtextview.lib.StringTag
+import li.yz.simplerichtextviewlib.ClickListener
+import li.yz.simplerichtextviewlib.DrawableImageTag
+import li.yz.simplerichtextviewlib.NetworkImageTag
+import li.yz.simplerichtextviewlib.StringTag
 
 /**
  * desc: todo Overview
@@ -39,22 +39,26 @@ class MainAct : AppCompatActivity() {
             DrawableImageTag(this@MainAct, R.drawable.frame_shai_zi_1).apply {
                 width = 10
                 height = 20
-                paddingStart=50
-                paddingEnd=55
+                paddingStart = 50
+                paddingEnd = 55
             },
             DrawableImageTag(this@MainAct, R.drawable.frame_shai_zi_2).apply {
                 width = 29
                 height = 39
-                paddingStart=50
-                paddingEnd=55
+                paddingStart = 50
+                paddingEnd = 55
             },
             DrawableImageTag(this@MainAct, R.drawable.frame_shai_zi_1).apply {
                 width = 29
                 height = 39
-                paddingEnd=50
+                paddingEnd = 50
             },
-            NetworkImageTag(this@MainAct,"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565354769259&di=7dbc748fcdb064b17dc3205fee3bb2eb&imgtype=0&src=http%3A%2F%2Fwww.yzqww.com%2Fuploadfile%2F2018%2F0809%2F20180809015801240.jpg",R.drawable.frame_shai_zi_2).apply {
-//                width = 30
+            NetworkImageTag(
+                this@MainAct,
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565354769259&di=7dbc748fcdb064b17dc3205fee3bb2eb&imgtype=0&src=http%3A%2F%2Fwww.yzqww.com%2Fuploadfile%2F2018%2F0809%2F20180809015801240.jpg",
+                R.drawable.frame_shai_zi_2
+            ).apply {
+                //                width = 30
 //                height =90
             },
             StringTag("张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三").apply {

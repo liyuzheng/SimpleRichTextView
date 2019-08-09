@@ -1,4 +1,4 @@
-package li.yz.simplerichtextview.lib
+package li.yz.simplerichtextviewlib
 
 import android.text.Spannable
 import android.text.SpannableString
