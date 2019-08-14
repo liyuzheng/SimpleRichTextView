@@ -17,8 +17,13 @@ import com.bumptech.glide.request.transition.Transition
 class NetworkImageTag(
     context: Context,
     private val src: String,
-    private val placeholderInt: Int = 0
+    private val placeholderInt: Int = 0,
+    private val transType: Int = TRANS_TYPE_DEFAULT
 ) : ImageTag(context, K_NETWORK_IMG) {
+    companion object {
+        const val TRANS_TYPE_DEFAULT = 0
+        const val TRANS_TYPE_CIRCLE_CROP = 1
+    }
 
     override fun formatSpaned(spannableString: SpannableString, start: Int) {
         super.formatSpaned(spannableString, start)
@@ -32,10 +37,13 @@ class NetworkImageTag(
 
     private fun getBitmapFromNet(spannableString: SpannableString, start: Int, end: Int) {
         Log.v("getBitmapFromNet", "getBitmapFromNet")
-        Glide.with(context)
+        var glide = Glide.with(context)
             .asBitmap()
             .load(src)
-            .placeholder(placeholderInt)
+        if (transType == TRANS_TYPE_CIRCLE_CROP) {
+            glide = glide.circleCrop()
+        }
+        glide.placeholder(placeholderInt)
             .into(object : CustomTarget<Bitmap>() {
                 override fun onLoadCleared(placeholder: Drawable?) {
 

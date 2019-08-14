@@ -58,8 +58,17 @@ class MainAct : AppCompatActivity() {
                 "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565354769259&di=7dbc748fcdb064b17dc3205fee3bb2eb&imgtype=0&src=http%3A%2F%2Fwww.yzqww.com%2Fuploadfile%2F2018%2F0809%2F20180809015801240.jpg",
                 R.drawable.frame_shai_zi_2
             ).apply {
-                //                width = 30
-//                height =90
+                width = 150
+                height = 150
+            },
+            NetworkImageTag(
+                this@MainAct,
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565354769259&di=7dbc748fcdb064b17dc3205fee3bb2eb&imgtype=0&src=http%3A%2F%2Fwww.yzqww.com%2Fuploadfile%2F2018%2F0809%2F20180809015801240.jpg",
+                R.drawable.frame_shai_zi_2,
+                NetworkImageTag.TRANS_TYPE_CIRCLE_CROP
+            ).apply {
+                width = 150
+                height = 150
             },
             StringTag("张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三").apply {
                 extras["uid"] = "12333"
