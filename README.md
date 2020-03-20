@@ -2,7 +2,7 @@
 a simple richtextview
 [ ![Download](https://api.bintray.com/packages/liyz/lyzlib/SimpleRichTextView/images/download.svg?version=1.0.2) ](https://bintray.com/liyz/lyzlib/SimpleRichTextView/1.0.2/link)
 
-### 效果图(图片录制失真，实际效果流畅）
+### 效果图
 <img src="/resources/simple.jpg" width = "300">
 
 ```
