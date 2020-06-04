@@ -13,6 +13,7 @@ import android.view.View
 abstract class BaseTag(mTag: String) {
     companion object {
         const val K_STRING = "{<string>}"
+        const val K_LG_STRING="{<lgstring>}"
         const val K_DRAWABLE_IMG = "{<drawableimg>}"
         const val K_NETWORK_IMG = "{<networkimg>}"
         const val K_BITMAP = "{<bitmap>}"
