@@ -1,6 +1,6 @@
 # SimpleRichTextView
 a simple richtextview
-[ ![Download](https://api.bintray.com/packages/liyz/lyzlib/SimpleRichTextView/images/download.svg?version=1.0.2) ](https://bintray.com/liyz/lyzlib/SimpleRichTextView/1.0.2/link)
+[ ![Download](https://api.bintray.com/packages/liyz/lyzlib/SimpleRichTextView/images/download.svg?version=1.1.0) ](https://bintray.com/liyz/lyzlib/SimpleRichTextView/1.1.0/link)
 
 ### 效果图
 <img src="/resources/simple.jpg" width = "300">
