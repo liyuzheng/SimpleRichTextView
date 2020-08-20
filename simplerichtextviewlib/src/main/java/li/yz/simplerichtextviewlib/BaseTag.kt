@@ -43,4 +43,12 @@ abstract class BaseTag(mTag: String) {
             spannableString.setSpan(clickableSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
     }
+
+    open fun onCreated(view:RichTxtView){
+
+    }
+
+    open fun onDestroy(view:RichTxtView){
+
+    }
 }
