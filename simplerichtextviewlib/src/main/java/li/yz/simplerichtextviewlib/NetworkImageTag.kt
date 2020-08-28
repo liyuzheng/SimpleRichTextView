@@ -76,7 +76,8 @@ class NetworkImageTag(
 
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     Log.v("getBitmapFromNet", "onResourceReady")
-                    val imgSpan = VerCenterImageSpan(context, resource)
+                    val b = scaleBitmap(resource)
+                    val imgSpan = VerCenterImageSpan(context, b)
                     spannableString.setSpan(imgSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 }
             })

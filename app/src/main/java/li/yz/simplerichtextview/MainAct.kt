@@ -63,6 +63,8 @@ class MainAct : AppCompatActivity() {
                 width = 150
                 height = 150
                 strokeWidth = 16
+                paddingStart = 100
+                paddingEnd = 100
                 color = Color.RED
                 click = object : ClickListener {
                     override fun onClick(v: View, extras: MutableMap<String, String>) {
