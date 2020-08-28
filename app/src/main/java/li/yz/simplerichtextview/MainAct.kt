@@ -62,6 +62,8 @@ class MainAct : AppCompatActivity() {
             ).apply {
                 width = 150
                 height = 150
+                strokeWidth = 16
+                color = Color.RED
                 click = object : ClickListener {
                     override fun onClick(v: View, extras: MutableMap<String, String>) {
                         Toast.makeText(this@MainAct, "img 2", Toast.LENGTH_SHORT).show()

@@ -44,6 +44,9 @@ class NetworkImageTag(
         var glide = Glide.with(context)
             .asBitmap()
             .load(src)
+        if (width != -1 && height != -1) {
+            glide = glide.override(width, height)
+        }
         if (transType == TRANS_TYPE_CIRCLE_CROP) {
             glide = glide.circleCrop()
         } else if (transType == TRANS_TYPE_CIRCLE_CROP_WITH_BORDER) {
@@ -73,8 +76,7 @@ class NetworkImageTag(
 
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     Log.v("getBitmapFromNet", "onResourceReady")
-                    val b = scaleBitmap(resource)
-                    val imgSpan = VerCenterImageSpan(context, b)
+                    val imgSpan = VerCenterImageSpan(context, resource)
                     spannableString.setSpan(imgSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 }
             })
