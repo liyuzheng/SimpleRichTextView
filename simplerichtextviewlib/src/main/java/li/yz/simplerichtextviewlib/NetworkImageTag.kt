@@ -54,6 +54,12 @@ class NetworkImageTag(
         }
         glide.placeholder(placeholderInt)
             .into(object : CustomTarget<Bitmap>() {
+                override fun onLoadFailed(errorDrawable: Drawable?) {
+                    val b = getBitmapFromDrawable(placeholderInt) ?: return
+                    val imgSpan = VerCenterImageSpan(context, b)
+                    spannableString.setSpan(imgSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
+
                 override fun onLoadCleared(placeholder: Drawable?) {
 
                 }
