@@ -2,13 +2,16 @@ package li.yz.simplerichtextviewlib
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.text.Spannable
 import android.text.SpannableString
 import android.util.Log
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import li.yz.simplerichtextviewlib.glide.GlideCircleWithBorderTransform
 
 /**
  * desc: todo Overview
@@ -23,6 +26,7 @@ class NetworkImageTag(
     companion object {
         const val TRANS_TYPE_DEFAULT = 0
         const val TRANS_TYPE_CIRCLE_CROP = 1
+        const val TRANS_TYPE_CIRCLE_CROP_WITH_BORDER = 2
     }
 
     override fun formatSpaned(spannableString: SpannableString, start: Int) {
@@ -42,6 +46,8 @@ class NetworkImageTag(
             .load(src)
         if (transType == TRANS_TYPE_CIRCLE_CROP) {
             glide = glide.circleCrop()
+        } else if (transType == TRANS_TYPE_CIRCLE_CROP_WITH_BORDER) {
+            glide = glide.transform(GlideCircleWithBorderTransform(strokeWidth, color))
         }
         glide.placeholder(placeholderInt)
             .into(object : CustomTarget<Bitmap>() {
@@ -56,7 +62,12 @@ class NetworkImageTag(
                             context,
                             this
                         )
-                        spannableString.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        spannableString.setSpan(
+                            span,
+                            start,
+                            end,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
                     }
                 }
 
@@ -69,4 +80,6 @@ class NetworkImageTag(
             })
     }
 
+    var strokeWidth = 3
+    var color = Color.WHITE
 }

@@ -58,7 +58,7 @@ class MainAct : AppCompatActivity() {
                 this@MainAct,
                 "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1752818900,208999761&fm=26&gp=0.jpg",
                 R.drawable.frame_shai_zi_2,
-                NetworkImageTag.TRANS_TYPE_DEFAULT
+                NetworkImageTag.TRANS_TYPE_CIRCLE_CROP_WITH_BORDER
             ).apply {
                 width = 150
                 height = 150
