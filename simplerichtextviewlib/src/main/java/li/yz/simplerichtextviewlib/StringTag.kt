@@ -1,13 +1,13 @@
 package li.yz.simplerichtextviewlib
 
 import android.graphics.Typeface
-import android.support.annotation.ColorInt
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.text.style.UnderlineSpan
+import androidx.annotation.ColorInt
 
 /**
  * desc: todo Overview
