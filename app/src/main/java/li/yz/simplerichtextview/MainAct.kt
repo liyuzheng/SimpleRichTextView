@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.m_act.*
 import li.yz.simplerichtextviewlib.*
+import org.jetbrains.anko.toJsonStr
 
 /**
  * desc: todo Overview

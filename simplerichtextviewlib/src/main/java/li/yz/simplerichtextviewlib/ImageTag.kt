@@ -14,14 +14,15 @@ abstract class ImageTag(protected val context: Context, tag: String) : BaseTag(t
     var height: Int = -1
     var paddingStart: Int = 0
     var paddingEnd: Int = 0
-
+    var paddingTop: Int = 0
+    var paddingBottom: Int = 0
     protected fun scaleBitmap(bitmap: Bitmap): Bitmap {
         try {
             if (width == -1 || height == -1) return bitmap
             val newBitmap =
                 Bitmap.createBitmap(
                     width + paddingStart + paddingEnd,
-                    height,
+                    height + paddingTop + paddingBottom,
                     Bitmap.Config.ARGB_8888
                 )//创建和目标相同大小的空Bitmap
             val canvas = Canvas(newBitmap)
@@ -31,12 +32,17 @@ abstract class ImageTag(protected val context: Context, tag: String) : BaseTag(t
             paint.isFilterBitmap = true //对Bitmap进行滤波处理
             paint.isAntiAlias = true//设置抗锯齿
             canvas.drawFilter = pfd
-            canvas.drawBitmap(bitmap, null, Rect(paddingStart, 0, width + paddingStart, height), paint)
+            canvas.drawBitmap(
+                bitmap,
+                null,
+                Rect(paddingStart, paddingTop, width + paddingStart, height + paddingBottom),
+                paint
+            )
             canvas.save()
 //            // 存储
             canvas.restore()
             return newBitmap
-        }catch (ex:Exception){
+        } catch (ex: Exception) {
             return bitmap
         }
     }
@@ -46,7 +52,7 @@ abstract class ImageTag(protected val context: Context, tag: String) : BaseTag(t
             val res: Resources = context.resources
             val bitmapDrawable = res.getDrawable(drawableInt) as BitmapDrawable
             scaleBitmap(bitmapDrawable.bitmap)
-        }catch (ex:Exception){
+        } catch (ex: Exception) {
             null
         }
     }

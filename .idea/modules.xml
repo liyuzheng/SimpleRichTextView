@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SimpleRichTextViewM.iml" filepath="$PROJECT_DIR$/SimpleRichTextViewM.iml" group="SimpleRichTextViewM" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="SimpleRichTextViewM/app" />
-      <module fileurl="file://$PROJECT_DIR$/simplerichtextviewlib/simplerichtextviewlib.iml" filepath="$PROJECT_DIR$/simplerichtextviewlib/simplerichtextviewlib.iml" group="SimpleRichTextViewM/simplerichtextviewlib" />
+      <module fileurl="file://$PROJECT_DIR$/SimpleRichTextViewM.iml" filepath="$PROJECT_DIR$/SimpleRichTextViewM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SimpleRichTextViewM.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SimpleRichTextViewM.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simplerichtextviewlib/SimpleRichTextViewM.simplerichtextviewlib.iml" filepath="$PROJECT_DIR$/.idea/modules/simplerichtextviewlib/SimpleRichTextViewM.simplerichtextviewlib.iml" />
     </modules>
   </component>
 </project>
