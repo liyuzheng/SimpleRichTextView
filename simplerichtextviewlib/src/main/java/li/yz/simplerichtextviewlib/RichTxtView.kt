@@ -11,19 +11,30 @@ import android.widget.TextView
  * desc: todo Overview
  * createed by liyuzheng on 2019/8/9 13:06
  */
-class RichTxtView : TextView {
+class RichTxtView : AppCompatTextView {
     constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        initAttr(context, attrs)attrs.xml
+    }
 
     init {
-        movementMethod = LinkMovementMethod.getInstance()
         highlightColor = Color.TRANSPARENT
+    }
+
+
+    private fun initAttr(context: Context, attrs: AttributeSet?) {
+        val ta = context.obtainStyledAttributes(attrs, R.styleable.RichTxtView)
+        val ignoreMovementMethod =
+            ta.getBoolean(R.styleable.RichTxtView_ignoreMovementMethod, false)
+        if (!ignoreMovementMethod) {
+            movementMethod = LinkMovementMethod.getInstance()
+        }
+        ta.recycle()
     }
 
     fun setText(vararg tags: BaseTag) {
         val spannableString = convertTagToSpannableString(*tags)
-        this.setText(spannableString, BufferType.SPANNABLE)
-        formatSpannableString(*tags)
+        formatSpannableString(spannableString, *tags)
     }
 
     private fun convertTagToSpannableString(vararg tags: BaseTag): SpannableString {
@@ -34,16 +45,16 @@ class RichTxtView : TextView {
         return SpannableString(spanStr)
     }
 
-    private fun formatSpannableString(vararg tags: BaseTag) {
-        val spannableString: SpannableString =
-            if (text is SpannableString) text as SpannableString else SpannableString("")
+    private fun formatSpannableString(spannableString: SpannableString, vararg tags: BaseTag) {
         var i = 0
         tags.forEach { tag ->
             tag.formatSpaned(spannableString, i)
             i += tag.tagSize
         }
+        text = spannableString
     }
 }
+
 
 
 
